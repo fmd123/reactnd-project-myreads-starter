@@ -21,7 +21,7 @@ clearQuery = ()=> {
 }
 
   render (){
-    const { books} = this.props
+    const {books} = this.props
     const { query } = this.state
 
     let filteredBooks
@@ -52,7 +52,31 @@ filteredBooks.sort(sortBy('title'))
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+            {
+              filteredBooks.map((book)=>(
+                <li key={book.title} className='book-list-item'>
+                  <div className="book">
+                    <div className="book-top">
+                      <img className='book-cover' src = {book.imageLinks.smallThumbnail} alt = {`cover for: ${book.title}`} style={{ width: 128, height: 193}}/>
+                      <div className="book-shelf-changer">
+                        <select>
+                          <option value="none" disabled>Move to...</option>
+                          <option value="currentlyReading">Currently Reading</option>
+                          <option value="wantToRead">Want to Read</option>
+                          <option value="read">Read</option>
+                          <option value="none">None</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="book-title">To Kill a Mockingbird</div>
+                    <div className="book-authors">Harper Lee</div>
+                  </div>
+                </li>
+              ))
+            }
+
+          </ol>
         </div>
       </div>
 
