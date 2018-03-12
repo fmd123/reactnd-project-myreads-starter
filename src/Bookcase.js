@@ -2,18 +2,21 @@ import React, {Component} from 'react'
 import Bookshelf from './Bookshelf'
 
 class Bookcase extends Component {
-  
-  render (){
+  render() {
+    const {books} = this.props
+    console.log(books)
     return(
+
       <div className="list-books">
         <div className="list-books-title">
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
           <div>
-{/*--------------------------------------------------------  */}
-        <Bookshelf />
-{/* -------------------------------------------------------- */}
+
+        <Bookshelf books="this.props.books"/>
+
+
             <div className="bookshelf">
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
