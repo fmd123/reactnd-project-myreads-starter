@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+// import Book from './Book'
 class Bookshelf extends Component {
 
   render(){
@@ -8,29 +8,19 @@ class Bookshelf extends Component {
 
     console.log('inside render method', books)
 
-    let currentReads =
-     books.filter((book)=>{
-       return book.shelf === "currentlyReading"
-     })
-     let WishReads =
-      books.filter((book)=>{
-        return book.shelf === "wantToRead"
-      })
-      let haveReads =
-       books.filter((book)=>{
-         return book.shelf === "read"
-       })
 
-  console.log("currentReads", currentReads)
+
+
+
 
 
     return(
       <div className="bookshelf">
-        <h2 className="bookshelf-title">Currently Reading</h2>
+        <h2 className="bookshelf-title">{this.props.shelfName}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {currentReads.map((book)=>(
-              <li key={book.title} className= "current-list-item">
+            {books.map((book)=>(
+              <li key={book.title} className="current-list-item">
                 <div className="book">
                   <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
