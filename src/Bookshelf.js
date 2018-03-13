@@ -5,11 +5,15 @@ class Bookshelf extends Component {
   render(){
 
     const {books} = this.props
-//  const match = "currentlyReading"
-//  let currentReads = books.filter((book)=>{
-//    match.test(book.shelf)
-//  })
-// console.log(currentReads)
+
+    console.log('inside render method', books)
+
+    let currentReads =
+     books.filter((book)=>{
+       return book.shelf === "currentlyReading"
+     })
+
+  console.log("currentReads", currentReads)
 
 
     return(

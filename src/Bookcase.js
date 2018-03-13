@@ -14,7 +14,7 @@ class Bookcase extends Component {
         <div className="list-books-content">
           <div>
 
-        <Bookshelf books="this.props.books"/>
+        <Bookshelf books={this.props.books}/>
 
 
             <div className="bookshelf">
