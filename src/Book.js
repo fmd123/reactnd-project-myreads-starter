@@ -2,17 +2,17 @@ import React, {Component} from 'react'
 // import BookShelfChanger from './BookShelfChanger'
   class Book extends Component {
 
-    // changeShelf = (value){
-    //
-    // }
     render(){
-      const{book, handleChange, shelf}= this.props
+      const{book, handleChange}= this.props
+      console.log(book)
+      const {shelf} = book.shelf
        return (
+
        <div className="book">
          <div className="book-top">
            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
            <div><form onSubmit={this.handleSubmit} className="book-shelf-changer">
-             {console.log({shelf})}
+
 
              <select onChange={handleChange}>
                <option value="none" disabled>Move to...</option>

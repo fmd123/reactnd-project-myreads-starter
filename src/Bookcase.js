@@ -5,7 +5,7 @@ import Bookshelf from './Bookshelf'
 class Bookcase extends Component {
   render() {
     const {books} = this.props
-    console.log(books)
+    
 
     let currentReads = books.filter((book) => {
       return book.shelf === "currentlyReading"
