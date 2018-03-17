@@ -15,16 +15,20 @@ class Search extends Component {
     this.setState({query: query.trim()})
   }
 
-  clearQuery = () => {
-    this.setState({query: ''})
-  }
+  // clearQuery = () => {
+  //   this.setState({query: ''})
+  // }
 
   render() {
     const {books} = this.props
     const {query} = this.state
+    console.log(books)
 
 
     let filteredBooks
+    let bookAuthors = ((books.authors).map((author)=>{
+
+    }))
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
       filteredBooks = books.filter((book) => book.title.includes(query) || book.authors.includes(query))

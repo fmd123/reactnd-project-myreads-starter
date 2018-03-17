@@ -9,7 +9,7 @@ class Bookshelf extends Component {
 
     const {books} = this.props
 
-    console.log('inside render method-Bookshelf', {books})
+    // console.log('inside render method-Bookshelf', {books})
 
 
 
@@ -23,7 +23,7 @@ class Bookshelf extends Component {
         <div className="bookshelf-books">
 
           <ol className="books-grid">
-            {console.log("inside return of render-Bookshelf", {books})}
+            {/* {console.log("inside return of render-Bookshelf", {books})} */}
             {books.map((book)=>(
               <Book book={book} key={book.title} />
 
