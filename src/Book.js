@@ -14,7 +14,7 @@ import React, {Component} from 'react'
            <div><form onSubmit={this.handleSubmit} className="book-shelf-changer">
 
 
-             <select onChange={handleChange}>
+             <select onChange={(event) => this.props.handleChange(this.props.book, event.target.value)} defaultValue={ this.props.book.shelf }>
                <option value="none" disabled>Move to...</option>
                <option value={"currentlyReading"}>Currently Reading</option>
                <option value="wantToRead">Want to Read</option>

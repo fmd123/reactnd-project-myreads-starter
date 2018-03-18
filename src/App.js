@@ -6,9 +6,8 @@ import Search from './Search'
 import ChangePage from './ChangePage'
 
 class BooksApp extends React.Component {
-  constructor (){
-    super()
-    this.state = {
+
+    state = {
       books: [],
         /**
          * TODO: Instead of using this state variable to keep track of which page
@@ -19,8 +18,9 @@ class BooksApp extends React.Component {
         showSearchPage: false
 
       }
-  }
+
   handleChange(event){
+    {console.log("I am handleChange function")}
     this.setState({value: event.target.value})
   }
 
@@ -50,7 +50,8 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           <Search books={this.state.books} showSearchPage={this.state.showSearchPage}/>
         ) : (
-          <Bookcase books={this.state.books} showSearchPage={this.state.showSearchPage}/>
+          <Bookcase books={this.state.books} showSearchPage={this.state.showSearchPage}
+          handleChange={this.handleChange}/>
         )}
       </div>
     )
