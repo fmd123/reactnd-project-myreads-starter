@@ -17,9 +17,8 @@ class Book extends Component {
             backgroundImage: `url(${book.imageLinks.smallThumbnail})`
           }}></div>
           <div>
-            <form onSubmit={this.handleSubmit} className="book-shelf-changer">
-
-              <select value={this.props.shelf} onChange={(event)=>(handleChange(event.target.value))} >
+            <div onSubmit={this.handleSubmit} className="book-shelf-changer">
+              <select value={shelf} onChange={(event)=>(handleChange(event.target.value))} >
                 <option value="none" disabled>Move to...</option>
                 <option value={"currentlyReading"}>Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
@@ -27,7 +26,7 @@ class Book extends Component {
                 <option value="none">None</option>
               </select>
 
-            </form>
+            </div>
           </div>
         </div>
         <div className="book-title">{book.title}</div>
