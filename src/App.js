@@ -11,7 +11,7 @@ class BooksApp extends React.Component {
 
       this.state = {
         books: [],
-        showSearchPage: false,
+        showSearchPage: true,
       };
       this.handleChange = this.handleChange.bind(this);
 
