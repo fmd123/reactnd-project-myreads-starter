@@ -13,9 +13,6 @@ class Book extends Component {
 
   render() {
     const {book, handleChange} = this.props
-    // console.log('book inside book.js')
-    // console.log(book)
-
     return (
 
       <div className="book">
@@ -24,7 +21,7 @@ class Book extends Component {
             width: 128,
             height: 193,
             backgroundImage: `url(${book.imageLinks.smallThumbnail})`
-          }}></div>
+          }}>{book.imageLinks.smallThumbnail? null : "No Image"}</div>
           <div>
             <div onSubmit={this.handleSubmit} className="book-shelf-changer">
 
@@ -35,12 +32,14 @@ class Book extends Component {
                 <option value="read">Read</option>
                 <option value="none">None</option>
               </select>
-              {/* //selected={optionsState == option.value} */}
             </div>
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors}</div>
+        <div className="book-authors">{book.authors?
+          <ul>{(book.authors).map((author)=>(
+            <li>{author}</li>
+          ))}</ul> : "Anonymous"}</div>
 
       </div>
     )
@@ -49,3 +48,12 @@ class Book extends Component {
 }
 
 export default Book
+
+// ok, think I figured it out...  I thought I could just use value={shelf}  for my <select> element because earlier in render I had written:
+//
+// const {book, shelf, handleChange} = this.props
+//
+// it needs to be select={book.shelf}
+//
+// Question:
+// so if I create a const shelf does that in a sense create a new const that is essentially detached from the const book?

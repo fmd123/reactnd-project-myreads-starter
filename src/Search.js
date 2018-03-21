@@ -15,9 +15,9 @@ class Search extends Component {
     this.setState({query: query.trim()})
   }
 
-  // clearQuery = () => {
-  //   this.setState({query: ''})
-  // }
+  clearQuery = () => {
+    this.setState({query: ''})
+  }
 
   render() {
     const {books} = this.props
