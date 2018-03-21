@@ -11,17 +11,24 @@ class BooksApp extends React.Component {
 
       this.state = {
         books: [],
-        
         showSearchPage: false,
       };
       this.handleChange = this.handleChange.bind(this);
 
     }
 
-    handleChange = event => {
-      {console.log("I am handleChange function")}
-      this.setState({value: event.target.value})
+    handleChange = (book, value) => {
+      {console.log({book})}
+      {console.log({value})}
+
+      this.setState((book, value)=>{
+        book.shelf = value;
+      })
+
+
     }
+
+
 
 
 

@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 // import BookShelfChanger from './BookShelfChanger'
 class Book extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  }
 
 
   render() {
@@ -18,7 +23,7 @@ class Book extends Component {
           }}></div>
           <div>
             <div onSubmit={this.handleSubmit} className="book-shelf-changer">
-              <select value={shelf} onChange={(event)=>(handleChange(event))} >
+              <select value={shelf} onChange={(event)=>(handleChange(book, event.target.value))} >
                 <option value="none" disabled>Move to...</option>
                 <option value={"currentlyReading"}>Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
