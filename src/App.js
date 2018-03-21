@@ -18,32 +18,56 @@ class BooksApp extends React.Component {
     }
 
     handleChange = (book, value) => {
+      // const {books} = this.state.books;
+      //if book.shelf === value then do nothing...
       {console.log({book})}
       {console.log({value})}
-
-      this.setState((book, value)=>{
         book.shelf = value;
-      })
+        this.setState(function (prevState, currProps) {
+          console.log(prevState)
+        return {
 
+          }
+         });
+
+      {console.log({book})}
 
     }
+//     handleChange = (book, value) => {
+//    book : clicked book object
+//    value : value of the event
+//
+//   this.setState((previousState) => {
+//      previousState.books : books array before modified by handleChange method
+//
+    // Find the clicked book object inside books array in state
+//     let targetBook = previousState.books.find((bookInState) => bookInState.id === book.id)
+//    Update the shelf property of the clicked book object inside books array
+//     targetBook.shelf = value
+//
+   // Return the updated books array
+//     return {books: previousState.books}
+//   })
+// }
 
 
-
+// this.setState(function (prevState, currProps) {
+//  return {
+//   //do something
+//  }
+// });
 
 
   componentDidMount(){
     BooksAPI.getAll().then((books)=>{
       this.setState({books})
-      // {console.log(this.state.books)}
-
     })
   }
 
 
 
   render() {
-
+    const {books} = this.state.books
     return (
       <div className="app">
         <div className="list-books">

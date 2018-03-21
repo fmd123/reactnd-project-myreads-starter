@@ -4,14 +4,18 @@ class Book extends Component {
   constructor(props){
     super(props);
     this.state = {
+
     }
   }
 
 
+
+
   render() {
     const {book, handleChange} = this.props
-    console.log(book)
-    const {shelf} = book.shelf
+    // console.log('book inside book.js')
+    // console.log(book)
+
     return (
 
       <div className="book">
@@ -23,14 +27,15 @@ class Book extends Component {
           }}></div>
           <div>
             <div onSubmit={this.handleSubmit} className="book-shelf-changer">
-              <select value={shelf} onChange={(event)=>(handleChange(book, event.target.value))} >
+
+              <select value={book.shelf} selected={book.shelf=== this.value} onChange={(event)=>(handleChange(book, event.target.value))} >
                 <option value="none" disabled>Move to...</option>
-                <option value={"currentlyReading"}>Currently Reading</option>
+                <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
                 <option value="none">None</option>
               </select>
-
+              {/* //selected={optionsState == option.value} */}
             </div>
           </div>
         </div>

@@ -5,8 +5,10 @@ import Bookshelf from './Bookshelf'
 class Bookcase extends Component {
   render() {
     const {books} = this.props
+    {console.log("books inside bookcase")}
+    {console.log({books})}
 
-
+    //I need to return something if there are no books in that category
     let currentReads = books.filter((book) => {
       return book.shelf === "currentlyReading"
     })
@@ -35,7 +37,5 @@ class Bookcase extends Component {
     )
   }
 }
-{/* <div className="open-search">
-  <a onClick={() => this.setState({showSearchPage: true})}>Add a book</a>
-</div> */}
+
 export default Bookcase
