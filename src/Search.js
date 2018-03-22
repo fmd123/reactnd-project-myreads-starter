@@ -19,17 +19,19 @@ class Search extends Component {
     this.setState({query: ''})
   }
 
+
+
   render() {
     const {books, handleChange} = this.props
     const {query} = this.state
-    console.log(books)
+
 
 
     let filteredBooks
-    
+
     if (query) {
-      const match = new RegExp(escapeRegExp(query), 'i')
-      filteredBooks = books.filter((book) => book.title.includes(query) || book.authors.includes(query))
+      // const match = new RegExp(escapeRegExp(query), 'i')
+      filteredBooks = books.filter((book) => book.title.includes(query) || books.authors.includes(query))
     } else {
       filteredBooks = books
     }
