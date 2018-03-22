@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
+import Book from './Book'
 
 class Search extends Component {
   static propTypes = {
@@ -31,7 +32,7 @@ class Search extends Component {
 
     if (query) {
       // const match = new RegExp(escapeRegExp(query), 'i')
-      filteredBooks = books.filter((book) => book.title.includes(query) || books.authors.includes(query))
+      filteredBooks = books.filter((book) => book.title.includes(query) )
     } else {
       filteredBooks = books
     }
@@ -57,7 +58,6 @@ class Search extends Component {
               placeholder="Search by title or author"
               value={query}
               onChange={(event)=>this.updateQuery(event.target.value)}
-
             />
 
           </div>
@@ -66,33 +66,7 @@ class Search extends Component {
           <ol className="books-grid">
             {filteredBooks.map((book) => (
               <li key={book.title} className='book-list-item'>
-                <div className="book">
-                  <div className="book-top">
-                    <img className='book-cover' src={book.imageLinks.smallThumbnail} alt={`cover for: ${book.title}`} style={{
-                      width: 128,
-                      height: 193
-                    }}/>
-                    <div className="book-shelf-changer">
-                      <select>
-                        <option value="none" disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="book-title">{book.title}</div>
-                  <ul className="book-authors">
-                    {book.authors.map((author, index)=>(
-                      <li key={index} className="book-author-list-item" >
-                        {author}
-                      </li>
-                    )) }
-
-                  </ul>
-                  {/*  TODO: fix authors search so can search by last name */}
-                </div>
+                <Book book={book} key={book.title} handleChange={this.props.handleChange}/>
               </li>
             ))
 }

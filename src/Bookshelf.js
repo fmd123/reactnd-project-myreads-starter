@@ -9,13 +9,7 @@ class Bookshelf extends Component {
 
     const {books} = this.props
 
-    // console.log('inside render method-Bookshelf', {books})
-
-
-
-
-
-
+    console.log('inside render method-Bookshelf', {books})
 
     return(
       <div className="bookshelf">

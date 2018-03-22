@@ -8,20 +8,18 @@ class Book extends Component {
     }
   }
 
-
-
-
   render() {
     const {book, handleChange} = this.props
     return (
 
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{
+
+          <img className='book-cover' src={book.imageLinks.smallThumbnail} alt={`cover for: ${book.title}`} style={{
             width: 128,
-            height: 193,
-            backgroundImage: `url(${book.imageLinks.smallThumbnail})`
-          }}>{book.imageLinks.smallThumbnail? null : "No Image"}</div>
+            height: 193
+          }}/>
+
           <div>
             <div onSubmit={this.handleSubmit} className="book-shelf-changer">
 
@@ -37,9 +35,9 @@ class Book extends Component {
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors?
-          <ul>{(book.authors).map((author)=>(
-            <li>{author}</li>
-          ))}</ul> : "Anonymous"}</div>
+          <ul>{(book.authors).map((author, index)=>(
+            <li key={index}>{author}</li>
+          ))}</ul> : <p>Anonymous"</p>}</div>
 
       </div>
     )
@@ -48,6 +46,12 @@ class Book extends Component {
 }
 
 export default Book
+
+{/* <div className="book-cover" style={{
+  width: 128,
+  height: 193,
+  backgroundImage: `url(${book.imageLinks.smallThumbnail})`
+}}></div> */}
 
 // ok, think I figured it out...  I thought I could just use value={shelf}  for my <select> element because earlier in render I had written:
 //

@@ -11,7 +11,7 @@ class BooksApp extends React.Component {
 
       this.state = {
         books: [],
-        showSearchPage: true,
+        showSearchPage: false,
       };
       this.handleChange = this.handleChange.bind(this);
 
@@ -34,9 +34,11 @@ class BooksApp extends React.Component {
 
     }
 
+
   componentDidMount(){
     BooksAPI.getAll().then((books)=>{
       this.setState({books})
+      {console.log({books})}
     })
   }
 
