@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
+import{Link} from 'react-router-dom'
 import Bookshelf from './Bookshelf'
-
 
 class Bookcase extends Component {
   render() {
     const {books} = this.props
-    {console.log("books inside bookcase")}
-    {console.log({books})}
+    {
+      console.log("books inside bookcase")
+    }
+    {
+      console.log({books})
+    }
 
     //I need to return something if there are no books in that category
     let currentReads = books.filter((book) => {
@@ -21,10 +25,12 @@ class Bookcase extends Component {
     })
 
     return (
+      <div className="list-books">
+        <div className='list-books-title'>
+          <Link to='/Search' className='search-link'>Search</Link>
+          <h1>My Reads</h1>
 
-
-        <div className="list-books-content">
-          <div>
+          <div className="list-books-content">
 
             <Bookshelf books={currentReads} shelfName="Currently Reading" handleChange={this.props.handleChange}/>
             <Bookshelf books={wishReads} shelfName="Want to Read" handleChange={this.props.handleChange}/>
@@ -32,7 +38,7 @@ class Bookcase extends Component {
 
           </div>
         </div>
-
+      </div>
 
     )
   }
